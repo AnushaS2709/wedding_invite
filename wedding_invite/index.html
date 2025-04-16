@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devika & Nithin’s Wedding Invitation</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(117deg, #ff41f7 0%, rgba(255, 73, 73, 0.81) 100%);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-fullscreen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 40px;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      text-align: center;
+    }
+
+    .overlay-content h1,
+    .overlay-content h2 {
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      margin: 0.3em;
+    }
+
+    .bless-button {
+      padding: 16px 32px;
+      font-size: 1.2em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+    .bless-button:hover {
+      background-color: #ff1493;
+    }
+
+    #inviteContent {
+      display: none;
+      max-width: 800px;
+      width: 90%;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      padding: 20px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .invite-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .map {
+      width: 100%;
+      height: 350px;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 1024px) {
+      .overlay-content h1 {
+        font-size: 2em;
+      }
+      .overlay-content h2 {
+        font-size: 1.5em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .overlay-content {
+        padding-bottom: 20px;
+      }
+      .overlay-content h1 {
+        font-size: 1.5em;
+      }
+      .overlay-content h2 {
+        font-size: 1.2em;
+      }
+      .bless-button {
+        font-size: 1em;
+        padding: 12px 24px;
+      }
+      .map {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overlay-content h1 {
+        font-size: 1.2em;
+      }
+      .overlay-content h2 {
+        font-size: 1em;
+      }
+      .bless-button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-wrapper">
+    <button onclick="playWithSound()" class="bless-button" style="position: absolute; top: 20px; right: 20px; z-index: 3;">
+      🔊 
+    </button>
+    
+    <script>
+      function showInvite() {
+        document.getElementById('inviteContent').style.display = 'block';
+        document.getElementById('inviteContent').scrollIntoView({ behavior: 'smooth' });
+      }
+    
+      function playWithSound() {
+        const video = document.querySelector('.video-fullscreen');
+        video.muted = false;
+        video.play();
+      }
+    </script>
+    <video class="video-fullscreen" autoplay muted loop playsinline poster="anime-poster.jpg">
+      <source src="reels_finale.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="overlay-content">
+      <h1>💍 Devika C R & Nithin G K</h1>
+      <h2>Join Our Wedding Celebration</h2>
+      <button class="bless-button" onclick="showInvite()">Click Me to Bless Us 💖</button>
+    </div>
+  </div>
+
+  <div id="inviteContent">
+    <img src="invite.jpg" alt="Wedding Invite" class="invite-image" />
+     
+    <iframe
+      class="map"
+      src="https://www.google.com/maps?q=Sri+Tirumala+Kalyana+Mantapa,+Chitradurga&output=embed"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <script>
+    function showInvite() {
+      document.getElementById('inviteContent').style.display = 'block';
+      document.getElementById('inviteContent').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
